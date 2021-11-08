@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.imc.R
+import com.example.imc.utils.convertBase64ToBitmap
 
 
 class DashBoardActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class DashBoardActivity : AppCompatActivity() {
     lateinit var tvPeso:TextView
     lateinit var tvIdade:TextView
     lateinit var tvAltura:TextView
-    lateinit var tvPerfil:ImageView
+    lateinit var ivPerfil:ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class DashBoardActivity : AppCompatActivity() {
         tvPeso = findViewById(R.id.tv_dash_peso)
         tvIdade = findViewById(R.id.tv_dash_idade)
         tvAltura = findViewById(R.id.tv_dash_altura)
-        tvPerfil = findViewById(R.id.iv_dash_foto_perfil)
+        ivPerfil = findViewById(R.id.iv_dash_foto_perfil)
 
             carregarDashboard()
 
@@ -43,6 +44,8 @@ class DashBoardActivity : AppCompatActivity() {
         tvNome.text = arquivo.getString("nome", "")
         tvProfissao.text = arquivo.getString("profissao", "")
         tvAltura.text = arquivo.getFloat("altura", 0.0f).toString()
-        
+
+        val bitmap = convertBase64ToBitmap(arquivo.getString("fotoPerfil", "")!!)
+        ivPerfil.setImageBitmap(bitmap)
     }
 }

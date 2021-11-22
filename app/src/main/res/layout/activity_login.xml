@@ -124,7 +124,8 @@
             android:layout_marginTop="16dp"
             android:padding="8dp"
             android:text="ENTRAR"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            />
 
         <CheckBox
             android:id="@+id/checkbox_lembrar"

@@ -1,9 +1,11 @@
 package com.example.imc.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.example.imc.R
 import com.example.imc.utils.calcularIdade
 import com.example.imc.utils.convertBase64ToBitmap
@@ -19,6 +21,7 @@ class DashBoardActivity : AppCompatActivity() {
     lateinit var tvIdade:TextView
     lateinit var tvAltura:TextView
     lateinit var ivPerfil:ImageView
+    lateinit var cardNovaPesagem: CardView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +38,13 @@ class DashBoardActivity : AppCompatActivity() {
         tvIdade = findViewById(R.id.tv_dash_idade)
         tvAltura = findViewById(R.id.tv_dash_altura)
         ivPerfil = findViewById(R.id.iv_dash_foto_perfil)
+        cardNovaPesagem = findViewById(R.id.card_pesar_agora)
+
+        cardNovaPesagem.setOnClickListener{
+            val  intent = Intent(this, PesagemActivity::class.java)
+            startActivity(intent)
+        }
+
 
             carregarDashboard()
 

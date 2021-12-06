@@ -43,7 +43,8 @@ class PesagemActivity : AppCompatActivity() {
 
             editor.apply()
 
-            Toast.makeText(this, "peso registrado com sucesso!!).
+            Toast.makeText(this, "peso registrado com sucesso!!", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }
